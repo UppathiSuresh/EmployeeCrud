@@ -11,12 +11,17 @@ namespace EmployeeCrud.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Employee
     {
         public int Id { get; set; }
+
+        [Display(Name ="Employee Name")]
         public string EmpName { get; set; }
+        [Display(Name ="Employee Salary")]
         public Nullable<decimal> EmpSalary { get; set; }
+        [Display(Name ="Employee Mail Id")]
         public string Email { get; set; }
     }
 }
