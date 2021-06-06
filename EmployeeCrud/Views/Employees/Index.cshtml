@@ -1,0 +1,79 @@
+﻿@*@model IEnumerable<EmployeeCrud.Models.Employee>*@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="form-inline pull-right">
+    <label>Search</label>
+    <input type="text" class="form-control" id="txtSearch"/>
+</div>
+
+<br />
+<br />
+<br />
+<div id="grdUsers"></div>
+<script>
+    $(() => {
+        getUsers();
+        $('#txtSearch').on('Keyup', () => {
+            getUsers();
+        });
+    });
+    function getUsers() {
+        $.ajax({
+            url: '@Url.Action("SearchUser", "Employees")',
+            dataType: 'html',
+            method: 'GET',
+            data: { searchText: $('#txtSearch').val() },
+            success: function (res) {
+                $('#grdUsers').html('').html(res);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    }
+
+</script>
+
+@*<table class="table table-bordered table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpSalary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detail", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>*@
