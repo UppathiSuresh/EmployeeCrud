@@ -4,16 +4,19 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2 class="text-center">Employee Registration</h2>
 
+<br />
+<br />
+<br />
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Employee</h4>
-        <hr />
+        @*<h4>Employee</h4>
+        <hr />*@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.EmpName, htmlAttributes: new { @class = "control-label col-md-2" })
