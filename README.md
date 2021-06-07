@@ -1,5 +1,5 @@
 # EmployeeCrud
-ASp.Net MVC Crud Operations by using ADO.Net Entity Data Model.
+ASp.Net MVC Crud Operations by using ADO.Net Entity Data Model and Entity Framework.
 
 # Sample output screen shot.
 
